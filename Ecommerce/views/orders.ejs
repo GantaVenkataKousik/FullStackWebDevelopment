@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- Coding by CodingNepal | www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsiive Admin Dashboard | CodingLab </title>
+    
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="/orders.css">
+   </head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <span class="logo_name">GVK</span>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="/admin/dashboard">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/customers">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="links_name">Customers</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/orders" class="active">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span class="links_name">Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/favourites">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="links_name">Favourites</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/products">
+                    <i class='bx bx-box'></i>
+                    <span class="links_name">Products</span>
+                </a>
+            </li>
+            <li> 
+                <a href="/admin/total-orders">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <span class="links_name">Total orders</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/addnewproduct" >
+                    <i class="fa-solid fa-circle-plus"></i>
+                    <span class="links_name">Add Product</span>
+                </a>
+            </li>
+    
+            <li>
+                <a href="/admin/update">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span class="links_name">Update</span>
+                </a>
+            </li>
+            <li>
+                <a href="/admin/delete">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <span class="links_name">Delete</span>
+                </a>
+            </li>
+            
+    
+            <li class="log_out">
+                <a href="/login">
+                    <i class='bx bx-log-out'></i>
+                    <span class="links_name">logout</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Orders</span>
+      </div>
+
+      <div class="profile-details">
+        <img src="/k2.jpg" alt="">
+        <span class="admin_name">Ganta Venkata Kousik</span>
+
+      </div>
+    </nav>
+
+    <div class="home-content">
+      <div class="sales-boxes">
+        <% userorders.forEach(uo => { %>
+            <% if(uo.products.length > 0) { %>
+        <div class="recent-sales box">
+          <div class="title"><%= uo.user.name %></div>
+          <div class="sales-details">
+            <div class="heading">
+              <li class="topic date">Date</li>
+            
+              <li class="topic">Product</li>
+              <li class="topic">Total</li>
+            </div>
+            <% uo.products.forEach(product => { %>
+            <ul class="details">
+              <li  class="date"><a href="#"><%= product.date.toLocaleString(undefined, { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true }).replace(/\./g, '').toUpperCase() %></a></li>
+              <li ><a href="#"><%= product.name %></a></li>
+              <li><a href="#">$<%= product.quantity * product.price %></a></li>
+            </ul>
+           <% }); %>
+          </div>
+        </div>
+        <% } %>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+<script src="/admin.js"></script>
+
+</body>
+</html>
