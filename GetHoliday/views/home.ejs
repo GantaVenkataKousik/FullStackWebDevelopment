@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Responsive Login and Signup Form </title>
+
+
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Google Fonts - Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4070f4;
+            column-gap: 30px;
+        }
+
+        .form {
+            position: absolute;
+            max-width: 430px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 6px;
+            background: #FFF;
+        }
+
+        .form.signup {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .forms.show-signup .form.signup {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .forms.show-signup .form.login {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        header {
+            font-size: 28px;
+            font-weight: 600;
+            color: #232836;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        .form .field {
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        .field input,
+        .field button {
+            height: 100%;
+            width: 100%;
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            border-radius: 6px;
+        }
+
+        .field input {
+            outline: none;
+            padding: 0 15px;
+            border: 1px solid#CACACA;
+        }
+
+        .field input:focus {
+            border-bottom-width: 2px;
+        }
+
+        .eye-icon {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #8b8b8b;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .field button {
+            color: #fff;
+            background-color: #0171d3;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .field button:hover {
+            background-color: #016dcb;
+        }
+
+        .form-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .form-link span,
+        .form-link a {
+            font-size: 14px;
+            font-weight: 400;
+            color: #232836;
+        }
+
+        .form a {
+            color: #0171d3;
+            text-decoration: none;
+        }
+
+        .form-content a:hover {
+            text-decoration: underline;
+        }
+
+        .line {
+            position: relative;
+            height: 1px;
+            width: 100%;
+            margin: 36px 0;
+            background-color: #d4d4d4;
+        }
+
+        .line::before {
+            content: 'Or';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #FFF;
+            color: #8b8b8b;
+            padding: 0 15px;
+        }
+
+        .media-options a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        a.facebook {
+            color: #fff;
+            background-color: #4267b2;
+        }
+
+        a.facebook .facebook-icon {
+            height: 28px;
+            width: 28px;
+            color: #0171d3;
+            font-size: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .facebook-icon,
+        img.google-img {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+        }
+
+        img.google-img {
+            height: 20px;
+            width: 20px;
+            object-fit: cover;
+        }
+
+        a.google {
+            border: 1px solid #CACACA;
+        }
+
+        a.google span {
+            font-weight: 500;
+            opacity: 0.6;
+            color: #232836;
+        }
+
+        @media screen and (max-width: 400px) {
+            .form {
+                padding: 20px 10px;
+            }
+
+        }
+
+        footer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+            font-size: 19px;
+            font-weight: 500;
+        }
+
+        footer span {
+            color: white;
+            padding: 3px;
+            border-radius: 10px;
+            letter-spacing: 2px;
+            font-size: 1.3rem;
+        }
+
+
+
+        .circles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .circles li {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            animation: animate 5s linear infinite;
+            bottom: -150px;
+
+        }
+
+        .circles li:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+
+        .circles li:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .circles li:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .circles li:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .circles li:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .circles li:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .circles li:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .circles li:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .circles li:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .circles li:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+        .circles li:nth-child(11) {
+            left: 30%;
+            width: 30px;
+            height: 30px;
+            animation-delay: 5s;
+            animation-duration: 10s;
+            /* Faster animation */
+        }
+
+        .circles li:nth-child(12) {
+            left: 55%;
+            width: 40px;
+            height: 40px;
+            animation-delay: 8s;
+            animation-duration: 14s;
+            /* Faster animation */
+        }
+
+
+        @keyframes animate {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <section class="container forms">
+        <div class="form login" id="container">
+            <div class="form-content">
+                <header>GET HOLIDAY</header>
+                <form action="/holiday" id="holidayForm" method="POST">
+                    <div class="field input-field">
+                        <input type="text" placeholder="Enter Country Name" class="input" name="country">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="text" placeholder="Enter Year" class="input" name="year" name="year">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="text" placeholder="Enter Month" class="input" name="month">
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="text" placeholder="Enter Day" class="input" id="day" name="day">
+                    </div>
+
+
+                    <div class="field button-field">
+                        <button type="submit">SUBMIT</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p class="footer copyright-text">&#169;copyright | <span> Divya </span> | 2023</p>
+      </footer>
+    
+</body>
+
+</html>
