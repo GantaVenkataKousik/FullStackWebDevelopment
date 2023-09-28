@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+body{
+	margin: 0;
+	padding: 0;
+	background: #2c52ed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Poppins", sans-serif;
+}
+
+.Cart-Container{
+	width: 60%;
+    margin: 5%;
+	background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px #49505533;
+}
+.ttile{
+    height: 10%;
+}
+.Header{
+	margin: auto;
+	width: 90%;
+	height: 15%;
+    
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.Heading{
+	font-size: 35px;
+	font-weight: 600;
+}
+
+.Action a{
+	font-size: 30px;
+	font-weight: 600;
+	cursor: pointer;
+	color: #2c52ed;
+}
+
+.Cart-Items{
+	margin: auto;
+	width: 90%;
+	height: 20%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.image-box{
+	width: 15%;
+	text-align: center;
+}
+.image-box img{
+    height: 90px;
+    border-radius: 5px;
+    margin: 5px;
+}
+.about {
+    height: 5vh;
+    width: 30%;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #202020;
+    white-space: normal; /* Allow text to wrap to the next line */
+}
+.subtitle{
+	line-height: 10px;
+	font-size: 18px;
+	font-weight: 600;
+	color: #909090;
+}
+
+.counter{
+	width: 15%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn{
+	height: 50px;
+	margin-top: 30px;
+	color: #fff;
+	padding: 0;
+	border: none;
+	background: #5372F0;
+	cursor: pointer;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.plus-btn,
+.minus-btn {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #2c52ed; /* Change this to your desired button color */
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%; /* Makes the button circular */
+    margin: 0 5px; /* Add margin between buttons */
+}
+
+/* Style the count element */
+.count {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0 5px; /* Add margin between count and buttons */
+}
+.count{
+	font-size: 20px;
+	font-weight: 600;
+	color: #202020;
+}
+
+.prices{
+	height: 100%;
+	text-align: right;
+	font-weight: 900;
+	color: #202020;
+	font-size: 1.5rem;
+}
+.amount{
+	padding-top: 20px;
+
+}
+.save{
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #2c52ed;
+	cursor: pointer;
+}
+.remove{
+	padding-top: 5px;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	
+	cursor: pointer;
+}
+
+.pad{
+	margin-top: 5px;
+}
+
+hr{
+	width: 90%;
+	float: right;
+	margin-right: 5%;
+}
+.ck{
+    margin-top: 20px;
+	float: right;
+	margin-right: 5%;
+	width: 28%;
+}
+.total{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	
+	font-size: 2rem;
+}
+.Subtotal{
+	font-size: 22px;
+	font-weight: 700;
+	color: #202020;
+}
+.items{
+	font-size: 16px;
+	font-weight: 500;
+	color: #909090;
+	line-height: 10px;
+}
+#total-amount{
+	font-size: 2.3rem;
+	font-weight: 900;
+	color: #202020;
+}
+.button{
+	margin: 20px 0;
+	width: 100%;
+	height: 40px;
+	border: none;
+	background: #2c52ed;
+	border-radius: 20px;
+	cursor: pointer;
+	color: #fff;
+	font-size: 22px;
+	box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
+	font-weight: 550;
+	text-transform: uppercase;
+}
+footer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #2F3841;
+  }
+  
+  footer span {
+    padding: 3px;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    font-size: 22px;
+  }
+.prices a{
+	text-decoration: none;
+}
+.save a{
+	color: rgb(24, 151, 24);
+}
+
+.remove a{
+	color: rgb(172, 30, 30);
+}
