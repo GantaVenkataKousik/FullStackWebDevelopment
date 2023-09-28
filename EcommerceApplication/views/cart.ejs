@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/cart.css">
+</head>
+
+<body>
+    <div class="Cart-Container">
+        <div class="Header">
+            <h3 class="Heading">Shopping Cart</h3>
+            <h5 class="Action"><a href="/removeall?userid=<%= encodeURIComponent(userid) %>">Remove all</a></h5>
+        </div>
+      
+
+        <% products.forEach(function(product) { %>
+            <div class="Cart-Items">
+                <div class="image-box">
+                    <img src="<%= product.imgUrl %>"  />
+                </div>
+                <div class="about">
+                    <h1 class="title"><%= product.name %></h1>
+                </div>
+
+                <div class="counter">
+                    <button class="plus-btn" data-product="<%= product.id %>">+</button>
+                    <div class="count" data-product="<%= product.id %>">1</div>
+                    <button class="minus-btn" data-product="<%= product.id %>">-</button>
+                </div>
+
+                
+                <div class="prices">
+                    <div class="price" data-product="<%= product.id %>">$<%=  product.price.toFixed(2) %></div>
+                    <div class="save"><a href="#">Save for later</a></div>
+                    <div class="remove"><a href="/remove-from-cart?id=<%= encodeURIComponent(product._id) %>&userid=<%= encodeURIComponent(userid) %>">Remove</a></div>
+                </div>
+            </div>
+        <% }); %>
+    
+        <hr>
+        <div class="ck">
+            <div class="total">
+                <div>
+                    <div class="Subtotal">Sub-Total</div>
+                    <div class="items"><%= products.length %> items</div>
+                </div>
+                <div id="total-amount"></div>
+            </div>
+            <a href="/checkout?id=<%= userid %>">
+            <button class="checkout button">Checkout</button></a>
+        </div>
+    </div>
+
+    <script src="/cart.js"></script>
+</body>
+
+</html>

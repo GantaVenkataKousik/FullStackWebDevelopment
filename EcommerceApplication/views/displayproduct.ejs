@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Product Card | CodingLab </title>
+  <link rel="stylesheet" href="/displayproduct.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <style>
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .shipping span,.shipping i{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="first">
+            <div class="box one">
+                <div class="details">
+                    <div class="topic">Description</div>
+                    <p spellcheck="false" class="from-text" placeholder="Enter text" name="from">
+
+                        <%= product.info %>
+                    </p>
+
+                    <div class="price-box">
+                        <div class="price-box">
+
+                            <div class="cash">
+                                <div class="price" id="amount">
+                                    <%= product.price %>
+                                </div>
+                                <div class="note" id="vals">USD</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="button1">
+                    <button><a
+                            href="/add-to-cart?userid=<%= encodeURIComponent(user._id) %>&id=<%= encodeURIComponent(product._id) %>&productCost=<%= product.price %>&imgUrl=<%= encodeURIComponent(product.imgUrl) %>&producername=<%= encodeURIComponent(product.name) %>">
+                            Add To Cart</a></button>
+                </div>
+            </div>
+
+            <div class="box two">
+                <div class="image-box">
+                    <div class="image">
+                        <img class="img" src="<%= product.imgUrl %> " alt="">
+                    </div>
+                    <div class="info">
+                        <div class="name">
+                            <%= product.name %>
+                        </div>
+                        <div>Free Shipping</div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+    <div class="second">
+      <div class="wrapper">
+        <ul class="controls">
+          <li class="row from">
+            <select class="trans from"></select>
+          </li>
+          <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+          <li class="row to">
+            <select class="trans to"></select>
+          </li>
+        </ul>
+        <button class="transBTN">Translate Text</button>
+      </div>
+      <div class="conv">
+        <div class="currency">
+          <div>
+            <select class="curr" id="from_currency"></select>
+          </div>
+          <div>
+            <select class="curr" id="to_currency"></select>
+          </div>
+        </div>
+        <button id="convert">Convert</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./currency.js"></script>
+  <script src="./trans_cont.js"></script>
+  <script src="./trans_final.js"></script>
+
+</body>
+
+</html>
